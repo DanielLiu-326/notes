@@ -1,0 +1,61 @@
+登陆模块api:
+	Controller：
+		Token login(password,id){
+			return service.login(...);
+		}
+	Service:
+		Map<Token,Uid> onlineUser;
+		Token login(password,id,position){
+			if(mapper.getPassword() == password){
+				var token = randString();
+				onlineUser.put(token,id);
+			}else{
+				return null;
+			}
+		}
+		Uid  checkToken(token){
+			onlineUser.get(token)
+		}
+	dao:
+		
+员工模块api：
+	controller:
+		UserInfo get_self_info(token){
+			var id = loginService.checkToken(token);
+			if(id==null){
+				return null;
+			}else{
+				return staffService.getInfo(id);
+			}
+		}
+		bool updateUserInfo(token,propertyName,value){
+			var id = loginService.checkToken(token);
+			if(id==null){
+				return false;
+			}else{
+				
+			}
+		}
+	service:
+md5(123456) = asdfadsfasfdafadsffdwrwer;
+md5(123456) = asdfadsfasfdafadsffdwrwer;
+
+
+md5(123456)
+
+
+
+password_mix    = MD5(plain_password+password_salt)
+password_salt   = rand_str()
+
+front end:
+password_salt = get_salt()
+MD5(input+password_salt)
+
+
+
+管理员模块api:
+
+
+财务模块api:
+

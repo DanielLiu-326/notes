@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="32a65c9c-96c6-4a86-8ab0-ba1c4c8665fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../../Chapter5Maven/src/main/java/com/aop/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Chapter5Maven/src/main/java/com/aop/service/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Chapter5Maven/src/main/java/com/aop/service/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Chapter5Maven/src/main/java/com/aop/service/TestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Chapter5Maven/src/main/java/com/ch5/codeTransaction/CodeTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Chapter5Maven/src/main/java/com/ch5/codeTransaction/CodeTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../Chapter5Maven/target/classes/com/ch5/codeTransaction/CodeTransaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../Chapter5Maven/target/classes/com/ch5/codeTransaction/CodeTransaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../_第5章 Spring的事务管理.ppt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../_第5章 Spring的事务管理.ppt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\JavaWork\IntelliJIDEA2019.3.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1rPqSwvCOEed5Sr3PokYMZ3qe6T" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Chapter11Maven" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32a65c9c-96c6-4a86-8ab0-ba1c4c8665fe" name="Default Changelist" comment="" />
+      <created>1618888075554</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618888075554</updated>
+      <workItem from="1618888076679" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="100" key="FileChooserDialogImpl" timestamp="1618888090252">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="421" y="100" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1618888090252" />
+  </component>
+</project>

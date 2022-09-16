@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="login_form">
+        account id:<br>
+        <input type="text" v-model="input_account_id" /><br>
+        password:<br>
+        <input type="password" v-model="input_passwd"><br>
+        confirm password:<br>
+        <input type="password" v-model="confirm_passwd"><br>
+        <input type="button" value="login" v-on:click="on_login_btn_clicked" />
+    </div>
+    <script>
+        const login_form = {
+            data() {
+                return {
+                    input_account_id: "",
+                    input_passwd: "",
+                    confirm_passwd: ""
+                }
+            },
+            methods: {
+                on_login_btn_clicked: function () {
+                    console.log("id:" + this.input_account_id);
+                    console.log("pswd:" + this.input_passwd);
+                    console.log("cfm_pswd:" + this.confirm_passwd);
+                    if (this.input_account_id == "") {
+                        alert("account id cant be blank");
+                    } else if (this.input_passwd == "") {
+                        alert("password id cant be blank");
+                    } else if (this.input_passwd != this.confirm_passwd) {
+                        alert("twice password input dont match");
+                    } else {
+                        alert("ok");
+                    }
+                },
+            }
+
+        }
+        Vue.createApp(login_form).mount("#login_form")
+
+    </script>
+</body>
+
+</html>

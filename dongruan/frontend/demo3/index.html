@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <title>Document</title>
+    <style>
+        .some_div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .another_div {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="computed_demo">
+        {{foo()}}<br>
+        <!--此处computed的成员foobar,没有加花括号但会自动调用foobar函数-->
+        {{foobar1}}<br>
+        {{foobar2}}<br>
+        <!--computed和methods的区别：     
+            1.在使用时， computed可以当做属性使用，而methods则可以当做方法调用。
+            2.computed可以具有getter和setter方法，因此可以赋值，而methods是不行的。
+            3.computed无法接收多个参数，而methods可以
+            4.computed是有缓存的，而methods没有
+        -->
+        {{barfoo()}}<br>
+        输入一个数计算它的平方：<br>
+        <input type="text" v-model="input_num" /><br>
+        结果：{{compute_sqrt}}<br>
+        两数相加：<br>
+        <input type="text" v-model="input_num1" /><br>
+        <input type="text" v-model="input_num2" /><br>
+        结果：{{compute_add}}<br>
+        <!--事件处理-->
+        <input type="button" v-on:click="btn_clicked" value="login page" />
+        <!--样式绑定 实现点击切换颜色-->
+        样式绑定:<br>
+        <div v-bind:class="div_class_obj" v-on:click="change_color">
+            click me!
+        </div>
+    </div>
+    <div id="watch_demo">
+        <div>
+            <input v-model="watch_input"><br>
+            {{message2}}<br>
+        </div>
+    </div>
+    <script>
+        const computed_app = {
+            data() {
+                return {
+                    bar: 213,
+                    foo: function () {
+                        return "132";
+                    },
+                    input_num: "",
+                    input_num1: "",
+                    input_num2: "",
+                    div_class_obj: {
+                        some_div: true,
+                        another_div: false,
+                    },
+                };
+            },
+            computed: {
+                foobar1: function () {
+                    console.log("foobar1")
+                    //此处this指的是data函数返回对象的指针。
+                    return this.bar;
+                },
+                foobar2: function () {
+                    console.log("foobar2")
+                    return "132";
+                },
+                compute_sqrt: function () {
+                    return this.input_num * this.input_num
+                },
+                compute_add: function () {
+                    return (1.0 * this.input_num1) + this.input_num2 * 1;
+                },
+                property_with_getter_setter: {
+                    get() {
+                        return "123";
+                    },
+                    set() {
+                        return "456";
+                    }
+                }
+            },
+            methods: {
+                barfoo: function () {
+                    return "123";
+                },
+                btn_clicked: function () {
+                    window.location.href = "./login.html";
+                },
+                change_color: function () {
+                    temp = this.div_class_obj.some_div;
+                    this.div_class_obj.some_div = this.div_class_obj.another_div;
+                    this.div_class_obj.another_div = temp;
+                }
+            }
+        };
+        Vue.createApp(computed_app).mount("#computed_demo");
+        const watch_demo = {
+            data() {
+                return {
+                    watch_input: "",
+                    message2: "",
+                    counter: "",
+                }
+            },
+            watch: {
+                watch_input(val) {
+                    //函数名必须与data函数返回对象中要监听的成员同名
+                    this.message2 = val * 1 + 1;
+                }
+            }
+        }
+        vm = Vue.createApp(watch_demo).mount("#watch_demo");
+        vm.$watch('counter', function (nval, oval) {
+            alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+        })
+    </script>
+</body>
+
+</html>

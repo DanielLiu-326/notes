@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mystyle.css" />
+    <title>demo</title>
+
+</head>
+
+<body>
+    <p>这是一个段落</p>
+    <p>这是另一个段落</p>
+    <a href="../">这是一个超链接</a>
+    <a href="../">这是另一个超链接</a>
+    <a href="https://baidu.com">这是通向百度的链接</a>
+    <h1 class="title">这是一级标题</h1>
+    <h2 id="title1">这是二级标题</h2>
+    <h3>这是三级标题</h3>
+    <h4>这是四级标题</h4>
+    <h5>这是五级标题</h5>
+    <h6>这是六级标题</h6>
+    <div>这是div标签</div>
+    这是文本<br>
+    这是另一个文本<br>
+    <!--span用于框选多个行内元素，来用于方便css选择器选择-->
+    <span>
+        <b>这是加粗文本</b>
+        <i>这是斜体文本</i>
+    </span>
+    <br>
+    <img src="./pulpit.jpg" alt="预备可替换文本">
+
+
+    <table border="1" cellpadding=0 cellspacing=0>
+        <caption>表格标题</caption>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+        <tr>
+            <!--colspan表示跨列-->
+            <td colspan="2">row 1, cell 1</td>
+        </tr>
+        <tr>
+            <td>row 2, cell 1</td>
+            <td>row 2, cell 2</td>
+        </tr>
+    </table>
+    列表<br>
+    <ul>
+        <li>Coffee</li>
+        <!--有序列表-->
+        <ol>
+            <li>Coffee_1</li>
+            <li>Coffee_2</li>
+        </ol>
+        <!--无序列表-->
+        <li>Tea
+            <ul>
+                <li>Black tea</li>
+                <li>Green tea</li>
+            </ul>
+        </li>
+        <li>Milk</li>
+    </ul>
+
+    <!--method是指提交时采用的方法，可以是get post-->
+    <form action="demo2.html" method="post">
+        文本输入框：<br>
+        <input type="text" name="text1">
+        <br>
+        按钮:<br>
+        <!--type,value是值按钮的value同时代表其显示的文本，id是，name会被作为传到后端url的参数名-->
+        <input class type="button" value="text" id="test_btn" name="132sdfa"><br>
+        复选框：<br>
+        <input type="checkbox" name="vehicle" value="Bike">我喜欢自行车<br>
+        <input type="checkbox" name="vehicle" value="Car">我喜欢小汽车<br>
+        单选框：<br>
+        <input type="radio" name="sex" value="male">男<br>
+        <input type="radio" name="sex" value="female">女<br>
+
+        <!--
+            2、无意中把<button>标签放到了<form>标签中，你会发现点击这个button变成了提交，相当于<inputtype="submit"/>
+            这一点参见上面第二句标红的话就明白什么意思了。
+            不要把<button>标签当成<form>中的input元素。
+            验证这一点可以在测试下面的代码
+        -->
+        <button> 按钮标签 </button><br>
+        <input type="datetime-local" name="birthday"><br>
+        <input type="submit" value="提交">
+    </form>
+    <p>test</p>
+    <footer style="background-color:#FFA500;clear:both;text-align:center;">danny</footer>
+</body>
+
+</html>

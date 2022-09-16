@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <title>Document</title>
+    <style>
+        /*div {
+            border-style: solid;
+            border-color: black;
+            border-width: 1px;
+        }*/
+        .paragraph {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app3">
+        <!--替换文本：直接替换，但不会影响dom tree-->
+        {{message}}
+        <!--替换内容：会影响dom tree，此处v-html会覆盖{{content}}，所以里面只有一个<hr>-->
+        <div v-html="content">
+            {{content}}
+            {{content}}
+        </div>
+        <div v-html="content"></div>
+
+        <!--替换属性，v-bind:attr表示将标签的attr属性设置为vue的对象的相应属性-->
+        <p id="paragraph" v-bind:style="style">段落</p>
+        <p id="paragraph" v-bind:class="p_class">段落</p>
+        <!--表达式-->
+        <div v-html="test_expr.split(',').join('|')">
+        </div>
+    </div>
+    <!--此处span的作用和div相同，因为v-bind和各种替换需要是app的内容而不能是本身的内容-->
+    <span id="form_app">
+        <form v-bind:action="pass_url">
+            <input type="submit" />
+        </form>
+    </span>
+    <!--替换双向数据绑定，v-model会监听用户的输入自动修改对应对象的数据-->
+    <!--v-bind是当对象的值改变时会触发修改dom tree
+        v-model是当对象值改变触发修改dom tree,并且dom tree发生改变触发修改对象。
+    -->
+    <div id="vue_data_bind">
+        <input type="text" v-model="input_val" />
+        <input type="text" v-model="input_val" />
+
+        <h1>{{input_val}}</h1>
+    </div>
+    <!--条件语句 v-if，如果这个后面的表达式值为true则插入此条标签如果false则不加入-->
+    <div id="if_demo">
+        <input type="text" v-model="input_val">
+        <div v-if="input_val >= 85 && input_val <= 100">
+            优秀
+        </div>
+        <div v-else-if=" input_val>=60&& input_val<85">
+            及格
+        </div>
+        <div v-else-if=" input_val>=0&& input_val<60">
+            不及格
+        </div>
+        <div v-else>
+            成绩不正确
+        </div>
+        您是否做核酸了？<br>
+        <input type="radio" name="nu" value="checked" v-model="nucleic_acid_test_state">已经做核酸了</input>
+        <input type="radio" name="nu" value="unchecked" v-model="nucleic_acid_test_state">未做核酸了</input>
+        <div v-if="nucleic_acid_test_state=='checked'">
+            已经做了
+        </div>
+        <div v-else>
+            没做
+        </div>
+    </div>
+    <!--循环语句-->
+    <div id="for_demo">
+        <select>
+            <option v-for="favourite in favourites">
+                {{favourite}}
+            </option>
+        </select>
+    </div>
+    <script>
+        var Test = {
+            data() {
+                return {
+                    message: '<h1>danny</h1>',
+                    content: "<hr>",
+                    style: "background:grey",
+                    p_class: "paragraph",
+                    test_expr: "adsf,asdf,adsfasdf,123"
+                };
+            }
+        }
+        Vue.createApp(Test).mount("#app3");
+
+        var Form = {
+            data() {
+                return {
+                    pass_url: "page_1.html"
+                };
+            }
+        }
+        Vue.createApp(Form).mount("#form_app");
+        var data_bind = {
+            data() {
+                return {
+                    input_val: "asdf"
+                };
+            }
+        }
+        Vue.createApp(data_bind).mount("#vue_data_bind");
+
+        var if_demo = {
+            data() {
+                return {
+                    input_val: "",
+                    nucleic_acid_test_state: "",
+                };
+            }
+        }
+        Vue.createApp(if_demo).mount("#if_demo");
+
+        var for_demo = {
+            data() {
+                return {
+                    favourites: ["2", "3", "4"]
+                };
+            }
+        }
+        Vue.createApp(for_demo).mount("#for_demo");
+
+    </script>
+
+</body>
+
+</html>

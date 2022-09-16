@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .item {
+            height: 310px;
+            width: 180px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+            margin-left: 10px;
+            margin-top: 10px;
+            float: left;
+        }
+
+        .taobao {
+            overflow: hidden;
+            padding-bottom: 10px;
+            width: 800px;
+        }
+
+        .item_photo {
+            width: 180px;
+            height: 190px;
+            border-style: solid;
+            border-width: 0px 0px 1px 0px;
+            border-color: black;
+        }
+
+        .item_name {
+            padding-left: 2px;
+            font-size: 10pt;
+            height: 40px;
+            overflow: hidden;
+            color: grey;
+        }
+
+        .price {
+            margin: 3px;
+            overflow: hidden;
+        }
+
+        .now_price {
+            color: red;
+            font-size: 15pt;
+            float: left;
+        }
+
+        .old_price {
+            text-align: center;
+            text-decoration: line-through;
+            float: left;
+            color: grey;
+        }
+
+        .store_name {
+            font-size: 10pt;
+            color: grey;
+        }
+
+        .sold_count {
+            margin: 3px;
+            float: right;
+            font-size: 8pt;
+        }
+
+        .style1 {
+            background-color: bisque;
+        }
+    </style>
+    <title>Demo2</title>
+</head>
+
+<body>
+    <div id="taobao" class="taobao">
+
+        <div class="item" v-for="(item,index) in items" v-bind:class="'style'+(index%2+1)">
+            <img v-bind:src="item.img" alt="tu" class="item_photo">
+            <div class="item_name">{{item.name}}</div>
+            <div class="price">
+                <div class="now_price">{{item.now_price}}</div>
+                <div class="old_price">{{item.old_price}}</div>
+            </div>
+            <div class="store_name">{{item.store_name}}</div>
+            <div class="sold_count">月销量 {{item.sold_count}}</div>
+        </div>
+
+    </div>
+    <script>
+        const taobao = {
+            data() {
+                return {
+                    items: [
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                        {
+                            name: "EQUALIZER草牌官方俄罗斯方块LOGO合身短袖T印花原创艹牌无中生有",
+                            now_price: "￥260",
+                            old_price: "￥260",
+                            store_name: "牛逼专卖店",
+                            sold_count: "1000",
+                            img: "./imgs/shirt.webp"
+                        },
+                    ]
+                };
+            }
+        }
+        Vue.createApp(taobao).mount("#taobao");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!--组件-->
+    <!--全局组件-->
+    <div id="component_demo">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter1></button-counter1>
+        <todo-item content="sadf"></todo-item>
+    </div>
+    <script>
+        // 创建一个Vue 应用
+        const app = Vue.createApp({})
+        // 定义一个名为 button-counter 的新全局组件
+        app.component('button-counter', {
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            template: `<button @click="count++">点了 {{ count }} 次！</button>`
+        })
+        app.component('button-counter1', {
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            template: `<button @click="count++">ohhhhhh点了 {{ count }} 次！</button>`
+        })
+        app.component('todo-item', {
+            props: ['content'],
+            template: '<button @click="handclick">{{content}}</button>',
+            methods: {
+                handclick: function () {
+                    alert('hello world')
+                }
+            }
+        })
+        app.mount('#component_demo')
+    </script>
+
+    <!--局部组件-->
+    <div id="component_demo_1">
+        <cp2></cp2>
+    </div>
+    <script>
+        var cp2 = {
+            template: '<div style = "color:green">zujian</div>'
+        };
+        const vueApp1 = Vue.createApp({
+            components: {
+                count_click: `<button @click="count++">点了 {{ count }} 次！</button>`
+            },
+            data() {
+
+            }
+        });
+        vueApp1.mount("#component_demo_1");
+    </script>
+</body>
+
+</html>
