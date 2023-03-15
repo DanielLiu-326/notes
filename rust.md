@@ -958,6 +958,37 @@ struct SomeStruct<'a>{
 
 'static 是一个特殊的生命周期：整个程序的持续时间
 
+#### 生命周期【理解】
+
+- `where T:'a`：只保证`T`最少要活过`'a`，`'a`本身不受T的影响
+- `struct Foo<'a>`：约束Foo最长不能活过`'a`，`Foo`生命周期受外部传入`'a`的影响
+- `fn<'a> f(Foo<'a>,Bar<'a>)->&'a usize`：`'a`的长度取决于入参数的生命周期并另返回值的生命周期等于`'a`。
+- `(dyn Trait + 'a)`，是Trait的trait object且满足`'a`约束
+
+**生命周期subtyping**
+
+- `Foo<'a>`对`'a`**协变**就是要求`Foo<'a>` **可以看作** `Foo<'b>`的前提是：`'a`长于`'b`
+
+- `Foo<'a>`对`'a`**不变**就是要求`Foo<'a>` **可以看作** `Foo<'b>`的前提是：`'a`等于`'b`
+
+- `Foo<'a>`对`'a`**逆变**就是要求`Foo<'a>` **可以看作** `Foo<'b>`的前提是：`'a`短于`'b`
+
+对于例子：`fn<'a> f(Foo<'a>,Bar<'a>)`，如果Foo是不变，`Bar<'a>`是协变，则`'a`的范围严格等于传入实参`Foo`的`'a`长度，`Bar<'a>`长于即可
+
+如果Foo是不变，Bar也是不变，则有`'a` == `Foo`的`'a` == `Bar`的`'a` 即：传入的`Foo`和`Bar`的`'a`要相同
+
+**常见的设计(令类型对某个生命周期参数不变)：**
+
+```rust
+pub type Invariant<'a> = PhantomData<Cell<&'a ()>>; //Cell会对'a不变
+pub struct Foo<'a>{
+    data:&'a usize,
+    invar:Invariant<'a>,
+}
+```
+
+
+
 ### 闭包
 
  #### 定义
